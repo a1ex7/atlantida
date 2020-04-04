@@ -1,7 +1,7 @@
 {
   "name": "gulp-project",
   "version": "2.0.1",
-  "description": "Start gulp project",
+  "description": "A1ex7(c) Start gulp project",
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
@@ -38,8 +38,6 @@
     "inputmask": "^4.0.8",
     "jquery": "^3.4.1",
     "masonry-layout": "^4.2.2",
-    "select2": "^4.0.7",
-    "simplebar": "^4.0.0",
     "slick-carousel": "^1.8.1"
   }
 }

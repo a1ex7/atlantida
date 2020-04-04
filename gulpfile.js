@@ -83,7 +83,8 @@ gulp.task('html', function() {
       basepath: '@file',
       indent: true,
     }))
-    .pipe(gulp.dest(cfg.src.root));
+    .pipe(gulp.dest(cfg.src.root))
+    .pipe(browserSync.stream());
 });
 
 
@@ -184,9 +185,9 @@ gulp.task('serve', function() {
 /* Monitoring */
 
 gulp.task('watch', function() {
-  //gulp.watch(cfg.src.templates + '/**/*.html', gulp.series('html'));
+  gulp.watch(cfg.src.templates + '/**/*.html', gulp.series('html'));
   gulp.watch( cfg.src.svg  + '/**/*.svg', gulp.series('sprites'));
-  gulp.watch( cfg.src.pug  + '/**/*.pug', gulp.series('pug'));
+  // gulp.watch( cfg.src.pug  + '/**/*.pug', gulp.series('pug'));
   gulp.watch( cfg.src.sass + '/**/*.{sass,scss}', gulp.series('sass'));
   gulp.watch([cfg.src.js + '/**/*.js', '!' + cfg.src.js + '/app.min.js' ], gulp.series('js'));
   gulp.watch( cfg.src.root + '/*.html', browserSync.reload);
@@ -295,32 +296,33 @@ gulp.task('build', gulp.series(
     done();
   },
 
-  'clean', 'sprites', 'imagemin', 'pug', 'sass', 'js',
+  'clean', 'sprites', 'imagemin', 'html', 'sass', 'js',
 
   function copyAssets(done) {
 
-  const copyHtml = gulp.src([
-    cfg.src.root + '/*.html',
-  ]).pipe(gulp.dest(cfg.dest.root));
+    const copyHtml = gulp.src([
+      cfg.src.root + '/*.html',
+    ]).pipe(gulp.dest(cfg.dest.root));
 
-  const copySprites = gulp.src([
-    cfg.src.img + '/sprites/**/*.svg',
-  ]).pipe(gulp.dest(cfg.dest.img + '/sprites'));
-  
-  const copyCss = gulp.src([
-    cfg.src.css + '/main.min.css',
-  ]).pipe(gulp.dest(cfg.dest.css));
+    const copySprites = gulp.src([
+      cfg.src.img + '/sprites/**/*.svg',
+    ]).pipe(gulp.dest(cfg.dest.img + '/sprites'));
+    
+    const copyCss = gulp.src([
+      cfg.src.css + '/main.min.css',
+    ]).pipe(gulp.dest(cfg.dest.css));
 
-  const copyJs = gulp.src([
-      cfg.src.js + '/app.min.js',
-  ]).pipe(gulp.dest(cfg.dest.js));
+    const copyJs = gulp.src([
+        cfg.src.js + '/app.min.js',
+    ]).pipe(gulp.dest(cfg.dest.js));
 
-  const copyFonts = gulp.src([
-    cfg.src.fonts + '/**/*',
-  ]).pipe(gulp.dest(cfg.dest.fonts));
+    const copyFonts = gulp.src([
+      cfg.src.fonts + '/**/*',
+    ]).pipe(gulp.dest(cfg.dest.fonts));
 
     done();
-}));
+  }
+));
 
 
 /* Go! */
@@ -331,7 +333,7 @@ gulp.task('default',
       cfg.setEnv('development');
       done();
     },
-    gulp.parallel('pug', 'sass', 'js'),
+    gulp.parallel('html', 'sass', 'js'),
     gulp.parallel('serve', 'watch')
   )
 );

@@ -2,7 +2,7 @@ import $ from 'jquery';
 // import './libs/masonry';
 // import './libs/inputmask';
 // import './libs/select2';
-import './libs/simplebar';
+// import './libs/simplebar';
 // import './libs/slider';
 
 $(function() {
