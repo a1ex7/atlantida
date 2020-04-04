@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG &lt;view&gt; sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		<style>i{text-indent:200%;white-space:nowrap;overflow:hidden;display:inline-block}</style>
+
+<!--
+	
+Sprite CSS
+====================================================================================================
+This is an all-in-one inline version of the CSS necessary to use the SVG sprite. 
+
+-->
+
+<style type="text/css">
+.svg-behance {
+	background: url("sprite.svg") 0 0 no-repeat;
+	width: 511.96px;
+	height: 511.96px;
+}
+.svg-comments {
+	background: url("sprite.svg") 9.115186042371372% 8.638434283786063% no-repeat;
+	width: 576px;
+	height: 512px;
+}
+.svg-dribble {
+	background: url("sprite.svg") 19.1515578243267% 17.276868567572127% no-repeat;
+	width: 512px;
+	height: 512px;
+}
+.svg-facebook {
+	background: url("sprite.svg") 26.24294802780965% 24.21614040442531% no-repeat;
+	width: 96.124px;
+	height: 96.123px;
+}
+.svg-google-plus {
+	background: url("sprite.svg") 29.871501496215455% 27.551881221528596% no-repeat;
+	width: 512px;
+	height: 512px;
+}
+.svg-heart {
+	background: url("sprite.svg") 38.88399929589861% 36.190315505314665% no-repeat;
+	width: 512px;
+	height: 512px;
+}
+.svg-instagram {
+	background: url("sprite.svg") 47.896497095581765% 44.828749789100726% no-repeat;
+	width: 512px;
+	height: 512px;
+}
+.svg-linkedin {
+	background: url("sprite.svg") 56.90899489526492% 53.46718407288679% no-repeat;
+	width: 512px;
+	height: 512px;
+}
+.svg-menu-cebab {
+	background: url("sprite.svg") 62.40626562239627% 62.105618356672856% no-repeat;
+	width: 192px;
+	height: 512px;
+}
+.svg-pinterest {
+	background: url("sprite.svg") 69.30117936982926% 70.74405264045892% no-repeat;
+	width: 512px;
+	height: 512px;
+}
+.svg-star {
+	background: url("sprite.svg") 72.270955165692% 73.46970643347908% no-repeat;
+	width: 37px;
+	height: 35px;
+}
+.svg-star-empty {
+	background: url("sprite.svg") 73.2288605941887% 74.34127979924718% no-repeat;
+	width: 67px;
+	height: 63px;
+}
+.svg-star-half {
+	background: url("sprite.svg") 74.32255958210904% 75.3293601003764% no-repeat;
+	width: 67px;
+	height: 63px;
+}
+.svg-twitter {
+	background: url("sprite.svg") 81.32371061432846% 82.09886957988864% no-repeat;
+	width: 512px;
+	height: 512px;
+}
+.svg-vk {
+	background: url("sprite.svg") 90.91807770979985% 91.29734925327324% no-repeat;
+	width: 548.358px;
+	height: 548.358px;
+}
+.svg-youtube {
+	background: url("sprite.svg") 100% 100% no-repeat;
+	width: 512px;
+	height: 512px;
+}
+</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+If you use the sprite in conjunction with the pre-defined views (respectively fragment identifiers),
+you will need to set the shape dimensions via CSS unless you want them to become a huge 100% in
+size. You may use the following CSS classes for doing so. They might well be outsourced to an
+external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-behance-dims { width: 511.96px; height: 511.96px; }
+	.svg-comments-dims { width: 576px; height: 512px; }
+	.svg-dribble-dims { width: 512px; height: 512px; }
+	.svg-facebook-dims { width: 96.124px; height: 96.123px; }
+	.svg-google-plus-dims { width: 512px; height: 512px; }
+	.svg-heart-dims { width: 512px; height: 512px; }
+	.svg-instagram-dims { width: 512px; height: 512px; }
+	.svg-linkedin-dims { width: 512px; height: 512px; }
+	.svg-menu-cebab-dims { width: 192px; height: 512px; }
+	.svg-pinterest-dims { width: 512px; height: 512px; }
+	.svg-star-dims { width: 37px; height: 35px; }
+	.svg-star-empty-dims { width: 67px; height: 63px; }
+	.svg-star-half-dims { width: 67px; height: 63px; }
+	.svg-twitter-dims { width: 512px; height: 512px; }
+	.svg-vk-dims { width: 548.358px; height: 548.358px; }
+	.svg-youtube-dims { width: 512px; height: 512px; }
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG <code>&lt;view&gt;</code> sprite preview</h1>
+			<p>This preview features two methods of using the generated sprite. Please have a look at the HTML source for further details and be aware of the following constraints regarding the prepared <code>&lt;view&gt;</code> elements (technique B):</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-fragment" target="_blank">support SVG fragment identifiers</a> for SVG stacks to work.</li>
+				<li>Support for SVG fragment identifiers hasn't always been that decent. For older browsers you might have to use a prolyfill (if available?).</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+	
+A) Conventional CSS sprite
+====================================================================================================
+This technique uses CSS classes to display portions of the sprite as background image of
+appropriately sized elements.
+
+-->
+
+			<h3>A) Conventional CSS sprite</h3>
+			<ul>
+				
+				<li title="behance">
+					<div class="icon-box">
+						
+						<!-- behance -->
+						<i class="svg-behance">behance</i>
+						
+					</div>
+					<h2>behance</h2>
+				</li>
+				<li title="comments">
+					<div class="icon-box">
+						
+						<!-- comments -->
+						<i class="svg-comments">comments</i>
+						
+					</div>
+					<h2>comments</h2>
+				</li>
+				<li title="dribble">
+					<div class="icon-box">
+						
+						<!-- dribble -->
+						<i class="svg-dribble">dribble</i>
+						
+					</div>
+					<h2>dribble</h2>
+				</li>
+				<li title="facebook">
+					<div class="icon-box">
+						
+						<!-- facebook -->
+						<i class="svg-facebook">facebook</i>
+						
+					</div>
+					<h2>facebook</h2>
+				</li>
+				<li title="google-plus">
+					<div class="icon-box">
+						
+						<!-- google-plus -->
+						<i class="svg-google-plus">google-plus</i>
+						
+					</div>
+					<h2>google-plus</h2>
+				</li>
+				<li title="heart">
+					<div class="icon-box">
+						
+						<!-- heart -->
+						<i class="svg-heart">heart</i>
+						
+					</div>
+					<h2>heart</h2>
+				</li>
+				<li title="instagram">
+					<div class="icon-box">
+						
+						<!-- instagram -->
+						<i class="svg-instagram">instagram</i>
+						
+					</div>
+					<h2>instagram</h2>
+				</li>
+				<li title="linkedin">
+					<div class="icon-box">
+						
+						<!-- linkedin -->
+						<i class="svg-linkedin">linkedin</i>
+						
+					</div>
+					<h2>linkedin</h2>
+				</li>
+				<li title="menu-cebab">
+					<div class="icon-box">
+						
+						<!-- menu-cebab -->
+						<i class="svg-menu-cebab">menu-cebab</i>
+						
+					</div>
+					<h2>menu-cebab</h2>
+				</li>
+				<li title="pinterest">
+					<div class="icon-box">
+						
+						<!-- pinterest -->
+						<i class="svg-pinterest">pinterest</i>
+						
+					</div>
+					<h2>pinterest</h2>
+				</li>
+				<li title="star">
+					<div class="icon-box">
+						
+						<!-- star -->
+						<i class="svg-star">star</i>
+						
+					</div>
+					<h2>star</h2>
+				</li>
+				<li title="star-empty">
+					<div class="icon-box">
+						
+						<!-- star-empty -->
+						<i class="svg-star-empty">star-empty</i>
+						
+					</div>
+					<h2>star-empty</h2>
+				</li>
+				<li title="star-half">
+					<div class="icon-box">
+						
+						<!-- star-half -->
+						<i class="svg-star-half">star-half</i>
+						
+					</div>
+					<h2>star-half</h2>
+				</li>
+				<li title="twitter">
+					<div class="icon-box">
+						
+						<!-- twitter -->
+						<i class="svg-twitter">twitter</i>
+						
+					</div>
+					<h2>twitter</h2>
+				</li>
+				<li title="vk">
+					<div class="icon-box">
+						
+						<!-- vk -->
+						<i class="svg-vk">vk</i>
+						
+					</div>
+					<h2>vk</h2>
+				</li>
+				<li title="youtube">
+					<div class="icon-box">
+						
+						<!-- youtube -->
+						<i class="svg-youtube">youtube</i>
+						
+					</div>
+					<h2>youtube</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<section>
+
+<!--
+	
+B) External sprite with pre-defined views referenced by fragment identifiers
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) and are referencing the <view> elements
+pre-defined in the external sprite.
+
+-->
+
+			<h3>B) External sprite with pre-defined views referenced by fragment identifiers</h3>
+			<ul>
+				
+				<li title="behance">
+					<div class="icon-box">
+						
+						<!-- behance -->
+						<img src="sprite.svg#behance" class="svg-behance-dims" alt="behance"/>
+						
+					</div>
+					<h2>behance</h2>
+				</li>
+				<li title="comments">
+					<div class="icon-box">
+						
+						<!-- comments -->
+						<img src="sprite.svg#comments" class="svg-comments-dims" alt="comments"/>
+						
+					</div>
+					<h2>comments</h2>
+				</li>
+				<li title="dribble">
+					<div class="icon-box">
+						
+						<!-- dribble -->
+						<img src="sprite.svg#dribble" class="svg-dribble-dims" alt="dribble"/>
+						
+					</div>
+					<h2>dribble</h2>
+				</li>
+				<li title="facebook">
+					<div class="icon-box">
+						
+						<!-- facebook -->
+						<img src="sprite.svg#facebook" class="svg-facebook-dims" alt="facebook"/>
+						
+					</div>
+					<h2>facebook</h2>
+				</li>
+				<li title="google-plus">
+					<div class="icon-box">
+						
+						<!-- google-plus -->
+						<img src="sprite.svg#google-plus" class="svg-google-plus-dims" alt="google-plus"/>
+						
+					</div>
+					<h2>google-plus</h2>
+				</li>
+				<li title="heart">
+					<div class="icon-box">
+						
+						<!-- heart -->
+						<img src="sprite.svg#heart" class="svg-heart-dims" alt="heart"/>
+						
+					</div>
+					<h2>heart</h2>
+				</li>
+				<li title="instagram">
+					<div class="icon-box">
+						
+						<!-- instagram -->
+						<img src="sprite.svg#instagram" class="svg-instagram-dims" alt="instagram"/>
+						
+					</div>
+					<h2>instagram</h2>
+				</li>
+				<li title="linkedin">
+					<div class="icon-box">
+						
+						<!-- linkedin -->
+						<img src="sprite.svg#linkedin" class="svg-linkedin-dims" alt="linkedin"/>
+						
+					</div>
+					<h2>linkedin</h2>
+				</li>
+				<li title="menu-cebab">
+					<div class="icon-box">
+						
+						<!-- menu-cebab -->
+						<img src="sprite.svg#menu-cebab" class="svg-menu-cebab-dims" alt="menu-cebab"/>
+						
+					</div>
+					<h2>menu-cebab</h2>
+				</li>
+				<li title="pinterest">
+					<div class="icon-box">
+						
+						<!-- pinterest -->
+						<img src="sprite.svg#pinterest" class="svg-pinterest-dims" alt="pinterest"/>
+						
+					</div>
+					<h2>pinterest</h2>
+				</li>
+				<li title="star">
+					<div class="icon-box">
+						
+						<!-- star -->
+						<img src="sprite.svg#star" class="svg-star-dims" alt="star"/>
+						
+					</div>
+					<h2>star</h2>
+				</li>
+				<li title="star-empty">
+					<div class="icon-box">
+						
+						<!-- star-empty -->
+						<img src="sprite.svg#star-empty" class="svg-star-empty-dims" alt="star-empty"/>
+						
+					</div>
+					<h2>star-empty</h2>
+				</li>
+				<li title="star-half">
+					<div class="icon-box">
+						
+						<!-- star-half -->
+						<img src="sprite.svg#star-half" class="svg-star-half-dims" alt="star-half"/>
+						
+					</div>
+					<h2>star-half</h2>
+				</li>
+				<li title="twitter">
+					<div class="icon-box">
+						
+						<!-- twitter -->
+						<img src="sprite.svg#twitter" class="svg-twitter-dims" alt="twitter"/>
+						
+					</div>
+					<h2>twitter</h2>
+				</li>
+				<li title="vk">
+					<div class="icon-box">
+						
+						<!-- vk -->
+						<img src="sprite.svg#vk" class="svg-vk-dims" alt="vk"/>
+						
+					</div>
+					<h2>vk</h2>
+				</li>
+				<li title="youtube">
+					<div class="icon-box">
+						
+						<!-- youtube -->
+						<img src="sprite.svg#youtube" class="svg-youtube-dims" alt="youtube"/>
+						
+					</div>
+					<h2>youtube</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Thu, 20 Jun 2019 20:45:32 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>

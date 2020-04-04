@@ -1,0 +1,11 @@
+node_modules/
+.idea/
+dist/
+.git/
+**/*.psd
+**/Thumbs.db
+src/img/temp
+src/css/main.min.css
+src/css/main.min.css.map
+src/js/app.min.js
+src/js/app.min.js.map

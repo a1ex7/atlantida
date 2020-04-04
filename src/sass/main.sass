@@ -1,0 +1,36 @@
+/* Default variables and mixins */
+@import 'helpers/vars'
+@import 'helpers/mixins'
+
+
+/* Third party Css libs */
+@import 'libs'
+
+
+/* Sprites, Fonts and Icons */
+@import 'fonts'       // For manual downloaded fonts
+// @import 'webfonts'      // For auto downloaded fonts by gulp-google-webfonts
+@import 'generated/sprite'        // Usage [pug]: +icon('iconTitle') or [sass]: backgroud-image: url('../img/sprites/sprie.svg#iconName') 50% 50% no-repeat
+@import 'generated/sprite-symbol' // Usage [pug]: +svg('iconTitle', width, height).someClass#someId(someAtr="value")
+
+
+/* Basic styles (body, a, tables, buttons, forms etc.) */
+@import 'base'
+
+
+/* Main styles */
+@import 'common/menu'
+@import 'common/gamburger'
+@import 'common/social'
+@import 'common/form'
+@import 'partials/header'
+
+@import 'partials/sample'
+@import 'partials/card'
+@import 'partials/section-name'
+
+@import 'partials/footer'
+
+/* Responsive */
+// @import 'media'
+// Now not need coz media queries set by mixins +r(width) - alias for +media(width)

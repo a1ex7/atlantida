@@ -1,0 +1,239 @@
+/* Mixins */
+
+=size($width, $height: $width)
+  width: $width
+  height: $height
+
+=width($size, $of)
+  width: 100% * $size / $of
+
+=height($size, $of)
+  height: 100% * $size / $of
+
+=round($radius: 50%)
+  border-radius: $radius
+
+=bg-center($url: '')
+  @if ($url != '')
+    background-image: url($url)
+  background-position: 50% 50%
+  background-repeat: no-repeat
+
+=bg-cover($url: '')
+  +bg-center($url)
+  background-size: cover
+
+=hide-text()
+  font-size: 0
+  overflow: hidden
+
+=move-text()
+  text-indent: -1000px
+  overflow: hidden
+
+=crop-text()
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+
+=line-clamp($nth-of-line: 3)
+  /* webkit */
+  overflow: hidden
+  display: -webkit-box
+  -webkit-line-clamp: $nth-of-line
+  -webkit-box-orient: vertical
+  /* opera */
+  text-overflow: -o-elipsis-lastline
+
+=cover
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+=transition($property: all, $duration: 0.3s, $func: ease-in-out)
+  transition: $property $duration $func
+
+=placeholder
+  &::-webkit-input-placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+
+=reset-btn()
+  border: none
+  background: none
+  padding: 0
+
+=arrow($direction: bottom, $width: 10px, $height: 5px, $bg: #000)
+  width: 0
+  height: 0
+  border-style: solid
+  @if $direction == top
+    border-width: 0 $width / 2 $height $width / 2
+    border-color: transparent transparent $bg transparent
+  @if $direction == right
+    border-width: $height / 2 0 $height / 2 $width
+    border-color: transparent transparent transparent $bg
+  @if $direction == bottom
+    border-width: $height $width / 2 0 $width / 2
+    border-color: $bg transparent transparent transparent
+  @if $direction == left
+    border-width: $height / 2 $width $height / 2 0
+    border-color: transparent $bg transparent transparent
+  @if $direction == top-left
+    border-width: $height $width 0 0
+    border-color: $bg transparent transparent transparent
+  @if $direction == top-roght
+    border-width: 0 $width $height 0
+    border-color: transparent $bg transparent transparent
+  @if $direction == bottom-right
+    border-width: 0 0 $height $width
+    border-color: transparent transparent $bg transparent
+  @if $direction == bottom-left
+    border-width: $width 0 0 $height
+    border-color: transparent transparent transparent $bg
+
+=arr($direction: bottom, $width: 10, $height: 5, $bg: #000)
+  +arrow($direction, $width, $height, $bg)
+
+=align($type: 'hv')
+  position: absolute
+  @if ($type == 'hv' or $type == 'vh')
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+  @else if ($type == 'h')
+    left: 50%
+    transform: translate(-50%, 0)
+  @else if ($type == 'v')
+    top: 50%
+    transform: translate(0, -50%)
+
+=font-face($font-family, $file-path, $weight: normal, $style: normal, $modern-browsers: true )
+  @font-face
+    font-family: $font-family
+    font-weight: $weight
+    font-style: $style
+
+    @if $modern-browsers == true
+      src: url('#{$file-path}.woff2') format('woff2'), url('#{$file-path}.woff') format('woff')
+    @else
+      src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff2') format('woff2'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype'), url('#{$file-path}.svg#Roboto') format('svg')
+
+=position($position: relative, $coordinates: null null null null)
+  @if type-of($position) == list
+    $coordinates: $position
+    $position: relative
+
+  $offsets: (top: nth($coordinates, 1), right: nth($coordinates, 2), bottom: nth($coordinates, 3), left: nth($coordinates, 4))
+
+  position: $position
+
+  @each $offset, $value in $offsets
+    @if is-length($value)
+      #{$offset}: $value
+
+// usage: +aspect-ratio(16,9) or +ar(16,9)
+=aspect-ratio($width, $height)
+  position: relative
+  &:before
+    display: block
+    content: ""
+    width: 100%
+    padding-top: ($height / $width) * 100%
+  > .content,
+  > :first-child
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+=ar($width, $height)
+  +aspect-ratio($width, $height)
+
+
+=flex
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-start
+  align-items: center
+
+=flex-center
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  align-items: center
+
+// Retina
+=retina()
+  @media (min-resolution: 144dpi), (min-resolution: 1.5dppx)
+    @content
+
+// Custom Breakpoint, aliases: 'media', 'breakpoint', 'r' (from 'responsive')
+=media($width)
+  @media only screen and (max-width: $width)
+      @content
+
+=breakpoint($width)
+  @media only screen and (max-width: $width)
+    @content
+
+=r($width)
+  @media only screen and (max-width: $width)
+    @content
+
+// Custom Breakpoint Mobile First
+=mediamin($width)
+  @media only screen and (min-width: $width)
+      @content
+
+// (new) Extra Large
+=xl()
+  @media only screen and (max-width: $break-xl)
+    @content
+
+// Large Devices, Wide Screens
+=lg()
+  @media only screen and (max-width: $break-lg)
+    @content
+
+// Medium Devices, Desktops
+=md()
+  @media only screen and (max-width: $break-md)
+    @content
+
+// Small Devices, Tablets
+=sm()
+  @media only screen and (max-width: $break-sm)
+    @content
+
+// Extra Small Devices, Phones
+=xs()
+  @media only screen and (max-width: $break-xs)
+    @content
+
+// Dynamic property depends of viewport size, eg. font-size
+=css-lock($min-size: 1, $max-size: 1.4, $min-width: 20, $max-width: 100, $property: font-size, $unit: px)
+  #{$property}: #{$max-size}#{$unit}
+  #{$property}: calc(#{$min-size}#{$unit} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}#{$unit}) / (#{$max-width} - #{$min-width})))
+  @media (max-width: #{$min-width}#{$unit})
+    #{$property}: #{$min-size}#{$unit}
+  @media (min-width: #{$max-width}#{$unit})
+    #{$property}: #{$max-size}#{$unit}
+
+/* Placeholders */
+
+/* Functions */
+
+@function em($size, $context: $font-size)
+  @return ($size / $context) * 1em
+
+@function rem($size)
+  @return ($size / $font-size) * 1rem

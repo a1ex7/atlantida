@@ -1,0 +1,181 @@
+*,
+*:after,
+*:before
+  box-sizing: border-box
+
+.clearfix:before,
+.clearfix:after
+  content: ''
+  display: table
+
+.clearfix:after
+  clear: both
+
+html, body
+  height: 100%
+
+a,
+a:active,
+a:focus
+  text-decoration: none
+  cursor: pointer
+  color: $link-color
+  transition: all 0.2s ease
+
+a:hover
+  color: $link-hover-color
+
+img
+  display: block
+  max-width: 100%
+  height: auto
+
+table
+  border-collapse: collapse
+
+textarea
+  resize: vertical
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video
+  vertical-align: middle
+
+.hidden
+  display: none !important
+
+.visually-hidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+.invisible
+  visibility: hidden
+
+
+body
+  font-family: $font-family-base, Arial, sans-serif
+  font-size: $font-size
+  letter-spacing: $letter-spacing
+  line-height: $line-height
+  color: $text-color
+  background: $bg-color
+  background-size: cover
+  min-width: 320px
+  overflow-x: hidden
+
+.wrapper
+  max-width: $wrapper-size + 2 * $wrapper-padding
+  padding-left: $wrapper-padding
+  padding-right: $wrapper-padding
+  margin-left: auto
+  margin-right: auto
+  position: relative
+
+.flex
+  +flex
+
+.flex-center
+  +flex-center
+
+.text-shadow
+  text-shadow: 0 1px 2px rgba(100,100,100,.35)
+
+/* Button */
+=button($background, $color, $border: $background)
+  display: inline-block
+  color: $color
+  background-color: $background
+  border: 2px solid $border
+  padding: 0 2em
+  min-width: 165px
+  height: 50px
+  line-height: 50px
+  font: 14px/1 $font-family-heading
+  text-transform: uppercase
+  text-align: center
+  user-select: none
+  cursor: pointer
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
+  &:hover
+    color: $primary
+    background-color: $color
+  &:active
+    color: darken($primary, 20%)
+    border-color: darken($primary, 20%)
+  &:focus
+    outline: 2px solid darken($primary, 20%)
+
+.btn, a.btn, .button
+  +reset-btn
+  +button($primary, $light)
+.btn--small
+  min-width: 135px
+.btn--inverse
+  +button($light, $primary, $primary)
+  &:hover
+    color: $light
+    border-color: darken($primary, 20%)
+  &:active
+    background-color: darken($primary, 20%)
+
+/* Input */
+$input-line-height: 20px // only in px
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea,
+select
+  font-size: 16px
+  font-family: $font-family-heading
+  line-height: $input-line-height
+  min-height: 50px
+  padding: 14px 1em
+  border: 2px solid $input-border-color
+  background-color: $light
+  &:focus
+    outline-color: $primary
+
+textarea
+  min-height: (3 * $input-line-height + 32px)
+  max-height: (10 * $input-line-height + 32px)
+
+/* Dropdown */
+.dropdown
+  &::after
+    display: inline-block
+    content: ''
+    +arrow(bottom, 0.6em, 0.3em, currentColor)
+    margin-left: 0.3em
+    vertical-align: 0.2em
+  &__menu
+    display: none
+    position: absolute;
+    top: 40px
+    left: 0
+    z-index: $z-index-dropdown
+    background-color: $light
+    padding: 0.5em 0
+    border: 1px solid rgba(0,0,0,.15)
+    &.show
+      display: block
+  &__item
+    display: block;
+    width: 100%;
+    padding: 0.25em 1em
+    white-space: nowrap
