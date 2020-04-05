@@ -1,27 +1,26 @@
 /* Modules */
 
-const gulp           = require('gulp');
+const gulp = require('gulp');
 
-const browserSync    = require('browser-sync').create();
-const del            = require('del');
-const fileinclude    = require('gulp-file-include');
+const browserSync = require('browser-sync').create();
+const del = require('del');
+const fileinclude = require('gulp-file-include');
 const googleWebFonts = require('gulp-google-webfonts');
 
-const imagemin       = require('gulp-imagemin');
+const imagemin = require('gulp-imagemin');
 
-const notify         = require('gulp-notify');
-const pug            = require('gulp-pug');
-const rename         = require('gulp-rename');
-const sass           = require('gulp-sass');
-const sourcemaps     = require('gulp-sourcemaps');
-const svgSprite      = require('gulp-svg-sprite');
+const notify = require('gulp-notify');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const svgSprite = require('gulp-svg-sprite');
 
-const webpack        = require('webpack-stream');
+const webpack = require('webpack-stream');
 
-const postcss        = require('gulp-postcss');
-const autoprefixer   = require('autoprefixer');
-const csso           = require('postcss-csso');
-const mqpacker       = require('css-mqpacker');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const csso = require('postcss-csso');
+const mqpacker = require('css-mqpacker');
 
 
 /* Configuration */
@@ -34,34 +33,34 @@ const cfg = {
   env: 'development',
 
   // Share browsers list between different front-end tools, like Autoprefixer, Stylelint and babel-env-preset. http://browserl.ist/
-  browserslist   : ['last 2 versions'],
+  browserslist: ['last 2 versions'],
 
   src: {
-    root         : srcPath + '',
-    templates    : srcPath + '/templates',
-    pug          : srcPath + '/pug',
-    sass         : srcPath + '/sass',
-    css          : srcPath + '/css',
+    root: srcPath + '',
+    templates: srcPath + '/templates',
+    sass: srcPath + '/sass',
+    css: srcPath + '/css',
+    components: srcPath + '/components',
     // path for sass files that will be generated automatically via some of tasks
-    sassGen      : srcPath + '/sass/generated',
-    js           : srcPath + '/js',
-    img          : srcPath + '/img',
-    svg          : srcPath + '/img/svg',
-    fonts        : srcPath + '/fonts',
-    libs         : srcPath + '/libs'
+    sassGen: srcPath + '/sass/generated',
+    js: srcPath + '/js',
+    img: srcPath + '/img',
+    svg: srcPath + '/img/svg',
+    fonts: srcPath + '/fonts',
+    libs: srcPath + '/libs'
   },
 
   dest: {
-    root : destPath,
-    html : destPath,
-    css  : destPath + '/css',
-    js   : destPath + '/js',
-    img  : destPath + '/img',
+    root: destPath,
+    html: destPath,
+    css: destPath + '/css',
+    js: destPath + '/js',
+    img: destPath + '/img',
     fonts: destPath + '/fonts',
-    libs : destPath + '/libs'
+    libs: destPath + '/libs'
   },
 
-  setEnv: function(env) {
+  setEnv: function (env) {
     if (typeof env !== 'string') return;
     this.env = env;
   },
@@ -73,11 +72,8 @@ const cfg = {
 
 /* Html with includes */
 
-gulp.task('html', function() {
-  return gulp.src([
-      cfg.src.templates + '/**/*.html', 
-      '!' + cfg.src.templates + '/**/_*.html'
-    ])
+gulp.task('html', function () {
+  return gulp.src(`${cfg.src.templates}/*.html`)
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file',
@@ -88,26 +84,10 @@ gulp.task('html', function() {
 });
 
 
-/* Pug Views Compile*/
-
-gulp.task('pug', function() {
-  return gulp.src([
-      cfg.src.pug + '/**/*.pug', 
-      '!' + cfg.src.pug + '/**/_*.pug'
-    ])
-    .pipe(pug({
-      basedir: cfg.src.pug,
-      pretty: true
-    })).on('error', notify.onError())
-    .pipe(gulp.dest(cfg.src.root))
-    .pipe(browserSync.stream());
-});
-
-
 /* Concatenate Libs scripts and common scripts */
 
-gulp.task('js', function() {
-  return gulp.src(cfg.src.js + '/index.js')
+gulp.task('js', function () {
+  return gulp.src(`${cfg.src.js}/index.js`)
     .pipe(webpack({
       module: {
         rules: [
@@ -118,7 +98,7 @@ gulp.task('js', function() {
               loader: 'babel-loader',
               options: {
                 presets: [
-                  ['@babel/preset-env', {"targets": cfg.browserslist}]
+                  ['@babel/preset-env', { "targets": cfg.browserslist }]
                 ],
                 // plugins: ['@babel/plugin-transform-arrow-functions'] // see https://babeljs.io/docs/en/plugins
               }
@@ -140,21 +120,21 @@ gulp.task('js', function() {
 
 /* Magic with sass files */
 
-gulp.task('sass', function() {
+gulp.task('sass', function () {
   const plugins = [
     mqpacker(),
     autoprefixer(),
-    csso({restructure: false}),
+    csso({ restructure: false }),
   ];
-  return gulp.src(cfg.src.sass + '/**/*.{sass,scss}')
+  return gulp.src(cfg.src.sass + '/main.+(sass|scss)')
     .pipe(sourcemaps.init())
     .pipe(sass({
-      outputStyle: 'expanded', // nested, expanded, compact, compressed
+      outputStyle: 'expanded',
     }))
     .on('error', notify.onError({
-        title: '<%= error.plugin %> in <%= error.relativePath %>',
-        message: '<%= error.messageOriginal %>\nLine: <%= error.line %>, <%= error.column %>',
-        sound: true,
+      title: '<%= error.plugin %> in <%= error.relativePath %>',
+      message: '<%= error.messageOriginal %>\nLine: <%= error.line %>, <%= error.column %>',
+      sound: true,
     }))
     .pipe(postcss(plugins))
     .pipe(rename({ suffix: '.min', prefix: '' }))
@@ -163,10 +143,9 @@ gulp.task('sass', function() {
     .pipe(browserSync.stream());
 });
 
-
 /* Browser Sync Server */
 
-gulp.task('serve', function() {
+gulp.task('serve', function () {
   browserSync.init({
     server: {
       baseDir: cfg.src.root
@@ -180,24 +159,21 @@ gulp.task('serve', function() {
   return true;
 });
 
-
-
 /* Monitoring */
 
-gulp.task('watch', function() {
-  gulp.watch(cfg.src.templates + '/**/*.html', gulp.series('html'));
-  gulp.watch( cfg.src.svg  + '/**/*.svg', gulp.series('sprites'));
-  // gulp.watch( cfg.src.pug  + '/**/*.pug', gulp.series('pug'));
-  gulp.watch( cfg.src.sass + '/**/*.{sass,scss}', gulp.series('sass'));
-  gulp.watch([cfg.src.js + '/**/*.js', '!' + cfg.src.js + '/app.min.js' ], gulp.series('js'));
-  gulp.watch( cfg.src.root + '/*.html', browserSync.reload);
+gulp.task('watch', function () {
+  gulp.watch([`${cfg.src.components}/**/*.html`, `${cfg.src.templates}/**/*.html`], gulp.series('html'));
+  gulp.watch([`${cfg.src.components}/**/*.+(scss|sass)`, `${cfg.src.sass}/**/*.+(scss|sass)`], gulp.series('sass'));
+  gulp.watch([`${cfg.src.js}/**/*.js`, `${cfg.src.components}/**/*.js`, `!${cfg.src.js}/app.min.js`], gulp.series('js'));
+  gulp.watch(`${cfg.src.svg}/**/*.svg`, gulp.series('sprites'));
+  gulp.watch(`${cfg.src.root}*.html`, browserSync.reload);
 });
 
 
 
 /* Image optimization */
 
-gulp.task('imagemin', function() {
+gulp.task('imagemin', function () {
   return gulp.src([cfg.src.img + '/**/*', '!' + cfg.src.img + '/sprites/**/*'])
     .pipe(imagemin([
       imagemin.gifsicle({ interlaced: true }),
@@ -216,7 +192,7 @@ gulp.task('imagemin', function() {
 
 /* Generate SVG Sprites */
 
-gulp.task('sprites', function() {
+gulp.task('sprites', function () {
   return gulp.src(cfg.src.svg + '/**/*.svg')
     .pipe(svgSprite({
       shape: {
@@ -273,7 +249,7 @@ const options = {
   cssFilename: 'webfonts.css'
 };
 
-gulp.task('fonts', function() {
+gulp.task('fonts', function () {
   return gulp.src('src/fonts/fonts.list')
     .pipe(googleWebFonts(options))
     .pipe(gulp.dest(cfg.src.fonts));
@@ -281,7 +257,7 @@ gulp.task('fonts', function() {
 
 /* Helpers */
 
-gulp.task('clean', function(done) {
+gulp.task('clean', function (done) {
   del.sync(cfg.dest.root);
   done();
 });
@@ -307,13 +283,13 @@ gulp.task('build', gulp.series(
     const copySprites = gulp.src([
       cfg.src.img + '/sprites/**/*.svg',
     ]).pipe(gulp.dest(cfg.dest.img + '/sprites'));
-    
+
     const copyCss = gulp.src([
       cfg.src.css + '/main.min.css',
     ]).pipe(gulp.dest(cfg.dest.css));
 
     const copyJs = gulp.src([
-        cfg.src.js + '/app.min.js',
+      cfg.src.js + '/app.min.js',
     ]).pipe(gulp.dest(cfg.dest.js));
 
     const copyFonts = gulp.src([
