@@ -5,7 +5,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "fonts": "gulp fonts"
   },
   "license": "MIT",
   "repository": {},
