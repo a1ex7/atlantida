@@ -1,0 +1,82 @@
+.article
+  display: flex
+  position: relative
+  color: #e3e3e3
+  background-color: #232325
+  flex-direction: column
+  flex-basis: 100%
+
+  @media screen and (min-width: 1200px)
+    flex-basis: 50%
+    flex-direction: row
+
+    &:nth-child(4n+3),
+    &:nth-child(4n+4)
+      flex-direction: row-reverse
+
+ 
+
+  @media screen and ( min-width: 650px) and (max-width: 1199px)
+    flex-basis: 100%
+    flex-direction: row
+
+    &:nth-child(even)
+      flex-direction: row-reverse
+
+  @media screen and ( max-width: 649px )
+    flex-basis: 100%
+    flex-direction: column
+
+  &__info
+    font-size: 12px
+    line-height: 1.5
+    font-family: 'Crimson Text', sans-serif
+    font-style: italic
+    position: relative
+
+    &::after
+      content: ''
+      width: 151px
+      border-bottom: 1px solid #454545
+      position: absolute
+      bottom: -11px
+      left: 0
+  
+  &__title
+    margin: 31px 0 37px
+    font-size: 13px
+    font-family: $font-family-base, sans-serif
+    letter-spacing: 1.47px
+    text-transform: uppercase
+    position: relative
+    padding-left: 10px
+    
+    &::before
+      content: '.'
+      font-size: 0
+      position: absolute
+      left: 0
+      top: 7px
+      +arrow(right, 4px, 7px, #e3e3e3)
+
+  &__inner
+    overflow: hidden
+    min-width: 50%
+    height: 100%
+
+  &__img
+    filter: blur(4px)
+    height: 100%
+    object-fit: cover
+
+  &__content
+    font-family: 'Crimson Text Roman', sans-serif
+    line-height: 20.31px
+    color: #949494
+    letter-spacing: 1.4px
+    min-width: 50%
+    padding: 49px 37px 70px
+      
+  &__text
+    text-overflow: ellipsis
+    overflow: hidden
