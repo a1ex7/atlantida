@@ -1,0 +1,75 @@
+.about-us {
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__img {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__main {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+    }
+
+    &__title {
+        color: #3e3d3d;
+        position: relative;
+    }
+    &__title:after {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAAGCAYAAAB0BoT/AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAJhSURBVHjazNfRsaMgFIBhOoAOoAPoQDuQDrQD6UBTgd4KmFsBkwqYVMBYgaWwL3t2yNmD8Wa8d/eBp3wPRv5DCMs5s9pa19UKIZIxJqzral85pVQ86+Z5HmouhGCudkqpqJSKzjlXczFG9RUnhEhn3TAMt5pLKQljTLjStW3rX7mcMytdSkkcOcbYftZZa5cjZ61drnTDMNzAxRgV/rz6AqZpGhhjO2Ms/177NE1/xbQsi8WOerne+/ab3J9FuRCCOeNijAq7tm09FRF2xphAOSFE+mmXc2bvOiFEopxSKmJHRWeMCf+rewqCiijGqGKMinO+McZ2731LReS9b0u3LIulIsKuHJ4yIu99m1IS4Mo4y02H5znrpJSPIwfPo7W+U0MBru/7W+mstcsZh4en5nCcsJngmqb5POO6rvs4cl3XfeScWd/3tyPXNM3nkYOTXGt9Lx0enrMOTmhw4zg6KmLs4ICG530KHV52CMFQceD4IUJwZdRl/Ou6WioiHD924zi6MkKIGK5FrxxcY+Akgk3HDq4dOA7sIHYcB6yawy+75mCTYOEhw3HUHPzM1xwMGY4DO4gYnJTyccZxzrfS4WGsOTw8zjl3xs3zPIAr4y+7fQqdui6Um350rfgJR10/cGw4Tlg4tprDm/4vXTkUsHBsODpYOI4rHHVd+G7HGNspB79Q5aLu5NU7egjBaK3vnPONuotjV7uzv+Ng8ssTmnLwJa9wKSUBjhouylHD9Y6Dk4kaQuw459sVDk5EcEd/7MBpre9XuHEcHed8k1I+jqL8ipNSPl65cv0CAAD//wMA8xY0AC8OOMEAAAAASUVORK5CYII=');
+        position: absolute;
+        top:30px;
+        left: -20px;
+    }
+
+    &__text {
+        color: #3e3d3d;
+        padding: 0 70px 40px;
+        font-size: 14px;
+        line-height: 25px;
+        font-family: CrimsonTextRoman;
+        letter-spacing: 1.23px;
+    }
+
+    &__btn {
+        display: inline-block;
+        margin: 0 0 50px 0;
+    }
+
+    &__items {
+    }
+}
+.button {
+    width: 135px;
+    height: 40px;
+    border: 2px solid #3e3d3d;
+    background-color: #ffffff;
+    color: #3e3d3d;
+    font-family: Montserrat;
+    font-size: 13px;
+    
+    padding: 0;
+}
+.button:hover {
+    background-color: #3e3d3d;
+    color:#ffffff;
+}
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.title {
+    font-family: $fh;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 60px 0;
+}
