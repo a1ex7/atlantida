@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
+  @@include('partials/_head.html')
 
-@@include('partials/_head.html')
+  <body>
+    @@include('../components/header/_header.html')
 
-<body>
-  @@include('../components/header/_header.html')
-  
-  <main class="main-content">
-    @@include('../components/sections/about-us/_about-us.html')
-    @@include('../components/blog/_blog.html')
-    <!-- @@include('../components/form/_form.html')   -->
-  </main>
+    <main class="main-content">
+      @@include('../components/sections/about-us/_about-us.html')
+      @@include('../components/blog/_blog.html')
+      @@include('../components/sections/clients/_clients.html')
+    </main>
 
-  @@include('../components/footer/_footer.html')
+    @@include('../components/footer/_footer.html')
 
- <!-- Scripts Bundle-->
-  <script src="js/app.min.js"></script>
-</body>
+    <!-- Scripts Bundle-->
+    <script src="js/app.min.js"></script>
+  </body>
 </html>
