@@ -1,0 +1,87 @@
+.prices {
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        margin: 0 0 40px;
+    }
+
+    &__title {
+        position: relative;
+    }
+    &__title:after {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAAGCAYAAAB0BoT/AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAJhSURBVHjazNfRsaMgFIBhOoAOoAPoQDuQDrQD6UBTgd4KmFsBkwqYVMBYgaWwL3t2yNmD8Wa8d/eBp3wPRv5DCMs5s9pa19UKIZIxJqzral85pVQ86+Z5HmouhGCudkqpqJSKzjlXczFG9RUnhEhn3TAMt5pLKQljTLjStW3rX7mcMytdSkkcOcbYftZZa5cjZ61drnTDMNzAxRgV/rz6AqZpGhhjO2Ms/177NE1/xbQsi8WOerne+/ab3J9FuRCCOeNijAq7tm09FRF2xphAOSFE+mmXc2bvOiFEopxSKmJHRWeMCf+rewqCiijGqGKMinO+McZ2731LReS9b0u3LIulIsKuHJ4yIu99m1IS4Mo4y02H5znrpJSPIwfPo7W+U0MBru/7W+mstcsZh4en5nCcsJngmqb5POO6rvs4cl3XfeScWd/3tyPXNM3nkYOTXGt9Lx0enrMOTmhw4zg6KmLs4ICG530KHV52CMFQceD4IUJwZdRl/Ou6WioiHD924zi6MkKIGK5FrxxcY+Akgk3HDq4dOA7sIHYcB6yawy+75mCTYOEhw3HUHPzM1xwMGY4DO4gYnJTyccZxzrfS4WGsOTw8zjl3xs3zPIAr4y+7fQqdui6Um350rfgJR10/cGw4Tlg4tprDm/4vXTkUsHBsODpYOI4rHHVd+G7HGNspB79Q5aLu5NU7egjBaK3vnPONuotjV7uzv+Ng8ssTmnLwJa9wKSUBjhouylHD9Y6Dk4kaQuw459sVDk5EcEd/7MBpre9XuHEcHed8k1I+jqL8ipNSPl65cv0CAAD//wMA8xY0AC8OOMEAAAAASUVORK5CYII=');
+        position: absolute;
+        top:30px;
+        left: -45px;
+    }
+
+    &__text {
+        font-size: 14px;
+        line-height: 25px;
+        font-family: CrimsonTextRoman;
+        letter-spacing: 1.4px;
+        text-align: center;
+        padding: 0 70px 40px;
+        letter-spacing: 1.23px;
+    }
+
+    &__row {
+        display: flex;
+        margin: 0 -15px;
+    }
+
+    &__col {
+        display: flex;
+        flex: 0 1 33.333%;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    &__item {
+        background-color: #ffffff;
+        padding: 45px 70px 60px;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+    }
+
+    &__subtitle {
+        font-family: Montserrat;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 18px;
+        text-transform: uppercase;
+    }
+
+    &__icon {
+        margin: 25px 0 35px;
+    }
+
+    &__price {
+        font-family: Montserrat;
+        font-size: 70px;
+        font-weight: 700;
+        position: relative;
+    }
+    &__price::before {
+        content: '$';
+        font-size: 28px;
+        font-weight: 400;
+        position: absolute;
+        top: 0;
+        left: 55px;
+    }
+
+    &__list {
+        font-family: 'Crimson Text',sans-serif;
+        font-style: italic;
+        line-height: 30px;
+        margin: 50px 0;
+        flex: 1 1 auto;
+    }
+    &__list > p {
+        margin: 0;
+    }
+}
