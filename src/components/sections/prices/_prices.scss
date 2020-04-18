@@ -56,9 +56,40 @@
     }
 
     &__icon {
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+        color: #3e3d3d;
         margin: 25px 0 35px;
+        align-self: center;
+        border: 2px solid #3e3d3d;
+        position: relative;
     }
-
+    &__icon img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__icon::before {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 85px;
+        background-color: #3e3d3d;
+        position: absolute;
+        top: 50%;
+        left: -86px;
+    }&__icon::after {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 85px;
+        background-color: #3e3d3d;
+        position: absolute;
+        top: 50%;
+        left: 47px;
+    }
     &__price {
         font-family: Montserrat;
         font-size: 70px;
