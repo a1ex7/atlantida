@@ -182,24 +182,36 @@ textarea
     padding: 0.25em 1em
     white-space: nowrap
 
+/* Sections base styles */
 .section
   padding: 80px
   background-color: $bg-color
 
-.section--white
-  background-color: $white      
-  
-.section__title
-  color: #3e3d3d
-  position: relative
-  font-family: $fh
-  text-transform: uppercase
-  font-size: 20px
-  letter-spacing: 2px
-  text-align: center
-  margin-bottom: 60px
-  &:after
-    +align('h')
-    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAAGCAYAAAB0BoT/AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAJhSURBVHjazNfRsaMgFIBhOoAOoAPoQDuQDrQD6UBTgd4KmFsBkwqYVMBYgaWwL3t2yNmD8Wa8d/eBp3wPRv5DCMs5s9pa19UKIZIxJqzral85pVQ86+Z5HmouhGCudkqpqJSKzjlXczFG9RUnhEhn3TAMt5pLKQljTLjStW3rX7mcMytdSkkcOcbYftZZa5cjZ61drnTDMNzAxRgV/rz6AqZpGhhjO2Ms/177NE1/xbQsi8WOerne+/ab3J9FuRCCOeNijAq7tm09FRF2xphAOSFE+mmXc2bvOiFEopxSKmJHRWeMCf+rewqCiijGqGKMinO+McZ2731LReS9b0u3LIulIsKuHJ4yIu99m1IS4Mo4y02H5znrpJSPIwfPo7W+U0MBru/7W+mstcsZh4en5nCcsJngmqb5POO6rvs4cl3XfeScWd/3tyPXNM3nkYOTXGt9Lx0enrMOTmhw4zg6KmLs4ICG530KHV52CMFQceD4IUJwZdRl/Ou6WioiHD924zi6MkKIGK5FrxxcY+Akgk3HDq4dOA7sIHYcB6yawy+75mCTYOEhw3HUHPzM1xwMGY4DO4gYnJTyccZxzrfS4WGsOTw8zjl3xs3zPIAr4y+7fQqdui6Um350rfgJR10/cGw4Tlg4tprDm/4vXTkUsHBsODpYOI4rHHVd+G7HGNspB79Q5aLu5NU7egjBaK3vnPONuotjV7uzv+Ng8ssTmnLwJa9wKSUBjhouylHD9Y6Dk4kaQuw459sVDk5EcEd/7MBpre9XuHEcHed8k1I+jqL8ipNSPl65cv0CAAD//wMA8xY0AC8OOMEAAAAASUVORK5CYII=')
-    position: absolute
-    top: 30px 
+  &--white
+    background-color: $white      
+    
+  &__title
+    position: relative
+    text-align: center
+    margin-bottom: 60px
+    font-family: $fh
+    font-size: 20px
+    letter-spacing: 2px
+    text-transform: uppercase
+    color: $text-color
+    &:after
+      +align('h')
+      content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAAGCAYAAAB0BoT/AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAIGNIUk0AAHolAACAgwAA+f8AAIDoAABSCAABFVgAADqXAAAXb9daH5AAAAJhSURBVHjazNfRsaMgFIBhOoAOoAPoQDuQDrQD6UBTgd4KmFsBkwqYVMBYgaWwL3t2yNmD8Wa8d/eBp3wPRv5DCMs5s9pa19UKIZIxJqzral85pVQ86+Z5HmouhGCudkqpqJSKzjlXczFG9RUnhEhn3TAMt5pLKQljTLjStW3rX7mcMytdSkkcOcbYftZZa5cjZ61drnTDMNzAxRgV/rz6AqZpGhhjO2Ms/177NE1/xbQsi8WOerne+/ab3J9FuRCCOeNijAq7tm09FRF2xphAOSFE+mmXc2bvOiFEopxSKmJHRWeMCf+rewqCiijGqGKMinO+McZ2731LReS9b0u3LIulIsKuHJ4yIu99m1IS4Mo4y02H5znrpJSPIwfPo7W+U0MBru/7W+mstcsZh4en5nCcsJngmqb5POO6rvs4cl3XfeScWd/3tyPXNM3nkYOTXGt9Lx0enrMOTmhw4zg6KmLs4ICG530KHV52CMFQceD4IUJwZdRl/Ou6WioiHD924zi6MkKIGK5FrxxcY+Akgk3HDq4dOA7sIHYcB6yawy+75mCTYOEhw3HUHPzM1xwMGY4DO4gYnJTyccZxzrfS4WGsOTw8zjl3xs3zPIAr4y+7fQqdui6Um350rfgJR10/cGw4Tlg4tprDm/4vXTkUsHBsODpYOI4rHHVd+G7HGNspB79Q5aLu5NU7egjBaK3vnPONuotjV7uzv+Ng8ssTmnLwJa9wKSUBjhouylHD9Y6Dk4kaQuw459sVDk5EcEd/7MBpre9XuHEcHed8k1I+jqL8ipNSPl65cv0CAAD//wMA8xY0AC8OOMEAAAAASUVORK5CYII=')
+      position: absolute
+      top: 30px 
+
+  &__text
+    color: $text-color
+    padding: 0 0 40px
+    font-size: $font-size
+    font-family: $ft
+    line-height: 1.8
+    letter-spacing: 1.23px
+    text-align: center
+    p
+      padding-bottom: 20px

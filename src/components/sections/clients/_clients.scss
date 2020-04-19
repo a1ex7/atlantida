@@ -1,19 +1,10 @@
 .clients {
 
-  &__text {
-    color: #3e3d3d;
-    padding: 0 70px 40px;
-    font-size: $font-size;
-    line-height: 25px;
-    font-family: CrimsonTextRoman;
-    letter-spacing: 1.23px;
-    text-align: center;
-  }
-
   &__list {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__item {

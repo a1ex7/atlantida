@@ -1,5 +1,5 @@
 %svg-common {
-	background: url("../../img/sprites/sprite.svg") no-repeat;
+	background: url("../img/sprites/sprite.svg") no-repeat;
   display: inline-block;
   vertical-align: middle;
 }
@@ -13,98 +13,105 @@
 
 .svg-comments {
 	@extend %svg-common;
-	background-position: 9.115186042371372% 8.638434283786063%;
+	background-position: 8.353728177516723% 7.9515452710048145%;
 	width: 576px;
 	height: 512px;
 }
 
 .svg-dribble {
 	@extend %svg-common;
-	background-position: 19.1515578243267% 17.276868567572127%;
+	background-position: 17.568222186339415% 15.903090542009629%;
 	width: 512px;
 	height: 512px;
 }
 
 .svg-facebook {
 	@extend %svg-common;
-	background-position: 26.24294802780965% 24.21614040442531%;
+	background-position: 24.209865641298155% 22.40740424664075%;
 	width: 96.124px;
 	height: 96.123px;
 }
 
 .svg-google-plus {
 	@extend %svg-common;
-	background-position: 29.871501496215455% 27.551881221528596%;
+	background-position: 27.40190537703859% 25.361080913185276%;
 	width: 512px;
 	height: 512px;
 }
 
 .svg-heart {
 	@extend %svg-common;
-	background-position: 38.88399929589861% 36.190315505314665%;
+	background-position: 35.66930405296302% 33.312626184190094%;
 	width: 512px;
 	height: 512px;
 }
 
 .svg-instagram {
 	@extend %svg-common;
-	background-position: 47.896497095581765% 44.828749789100726%;
+	background-position: 43.936702728887454% 41.264171455194905%;
+	width: 512px;
+	height: 512px;
+}
+
+.svg-lamp {
+	@extend %svg-common;
+	background-position: 52.20410140481189% 49.21571672619972%;
 	width: 512px;
 	height: 512px;
 }
 
 .svg-linkedin {
 	@extend %svg-common;
-	background-position: 56.90899489526492% 53.46718407288679%;
+	background-position: 60.47150008073631% 57.167261997204534%;
 	width: 512px;
 	height: 512px;
 }
 
 .svg-menu-cebab {
 	@extend %svg-common;
-	background-position: 62.40626562239627% 62.105618356672856%;
+	background-position: 65.36158452326117% 65.11880726820935%;
 	width: 192px;
 	height: 512px;
 }
 
 .svg-pinterest {
 	@extend %svg-common;
-	background-position: 69.30117936982926% 70.74405264045892%;
+	background-position: 71.83917326013241% 73.07035253921417%;
 	width: 512px;
 	height: 512px;
 }
 
 .svg-star {
 	@extend %svg-common;
-	background-position: 72.270955165692% 73.46970643347908%;
+	background-position: 74.4001199760048% 75.43377674956622%;
 	width: 37px;
 	height: 35px;
 }
 
 .svg-star-empty {
 	@extend %svg-common;
-	background-position: 73.2288605941887% 74.34127979924718%;
+	background-position: 75.29376318168123% 76.24854819976771%;
 	width: 67px;
 	height: 63px;
 }
 
 .svg-star-half {
 	@extend %svg-common;
-	background-position: 74.32255958210904% 75.3293601003764%;
+	background-position: 76.30310334438084% 77.16318234610918%;
 	width: 67px;
 	height: 63px;
 }
 
 .svg-twitter {
 	@extend %svg-common;
-	background-position: 81.32371061432846% 82.09886957988864%;
+	background-position: 82.86775391571129% 83.52228606926542%;
 	width: 512px;
 	height: 512px;
 }
 
 .svg-vk {
 	@extend %svg-common;
-	background-position: 90.91807770979985% 91.29734925327324%;
+	background-position: 91.6733505050318% 91.99327402656591%;
 	width: 548.358px;
 	height: 548.358px;
 }
