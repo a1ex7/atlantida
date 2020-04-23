@@ -1,0 +1,41 @@
+.our-team {
+    background-image: url(../img/our-team/our-team-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 70px 0;
+    &__main {
+    }
+
+    &__text {
+        font-family: $ft;
+        font-size: $fz;
+        line-height: 25px;
+        letter-spacing: 1.23px;
+        text-align: center;
+    }
+
+    &__row {
+        display: flex;
+        margin: 0 -15px;
+        padding: 55px 60px 0;
+    }
+
+    &__col {
+        display: flex;
+        flex: 0 1 33.333%;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    &__item img{
+        height: 340px;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.team-container {
+    max-width: 1030px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
