@@ -6,7 +6,7 @@
     background-size: cover;
     padding: 70px 0 85px;
     z-index: -2;
-    
+
     &::before {
         content: "";
         display: block;
@@ -17,7 +17,7 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
         z-index: -1;
-      }
+    }
 
     &__main {
         padding: 0 70px 80px;
@@ -38,12 +38,19 @@
 
     &__row {
         display: flex;
+        flex-wrap: wrap;
         margin: 0 -15px;
     }
 
     &__col {
         display: flex;
         flex: 0 1 25%;
+
+        @include md {
+            flex: 0 1 50%;
+            margin-bottom: 25px;
+        }
+
         padding: 0 15px;
         text-align: center;
     }
@@ -59,7 +66,7 @@
         background-size: 40% 2px, 40% 2px;
         background-repeat: no-repeat, no-repeat;
         background-position: left top, right top;
-        
+
     }
 
     &__icon {

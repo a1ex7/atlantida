@@ -24,6 +24,8 @@
     background-color: $light
     &:before
       content: ''
+      +md
+        content: none
       position: absolute
       top: 0
       bottom: 0
@@ -61,6 +63,8 @@
   position: relative
   &:before
     content: ''
+    +md
+      content: none
     position: absolute
     top: 20px
     right: -5px
@@ -73,6 +77,8 @@
     +size(10px)
   &:after
     content: ''
+    +md
+      content: none
     position: absolute
     display: block
     +size(18px)
