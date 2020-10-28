@@ -202,7 +202,7 @@ const imageopt = () => {
     .pipe(
       imagemin([
         imagemin.gifsicle({interlaced: true}),
-        imagemin.jpegtran({progressive: true}),
+``        imagemin.mozjpeg({quality: 75, progressive: true}),
         imagemin.optipng({optimizationLevel: 5}),
         imagemin.svgo({
           plugins: [
